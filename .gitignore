@@ -1,0 +1,11 @@
+# Python cache and environment
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Large datasets and media files
+CH-1/cifar-10-batches-py/
+CH-1/Video/
+*.tar.gz
+*.mp4
