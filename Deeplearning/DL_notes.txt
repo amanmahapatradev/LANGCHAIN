@@ -1,0 +1,178 @@
+================================================================================
+                         DEEP LEARNING STUDY NOTES
+================================================================================
+
+1. HIERARCHY & LANDSCAPE
+--------------------------------------------------------------------------------
+   Artificial Intelligence (AI)
+       └── Machine Learning (ML)
+             └── Deep Learning (DL)
+
+   Related Ecosystem:
+   - Data Science: Interdisciplinary field combining statistics, ML, and domain expertise.
+   - Big Data: High volume, velocity, and variety data infrastructure.
+   - Data Analytics: Qualitative and quantitative techniques to extract insights.
+   - ML Operations (MLOps): CI/CD, deployment, monitoring, and governance of ML/DL models.
+
+
+2. CORE CHARACTERISTICS OF DEEP LEARNING
+--------------------------------------------------------------------------------
+   - Unstructured Data: Excels at processing unstructured formats (Images, Text, 
+     Audio, Video) without requiring handcrafted features.
+   - Automatic Feature Extraction: Learns hierarchical feature representations directly 
+     from raw data (e.g., edges -> textures -> parts -> objects).
+   - High Capacity & Scalability: Model performance continuously scales with larger 
+     datasets and increased compute.
+   - Complex Multi-Modal Operations:
+       * Computer Vision: Object detection, image classification, video generation.
+       * NLP: Machine translation, sentiment analysis, text generation, summarization.
+       * Audio / Speech: Speech-to-text (ASR), voice cloning, speech synthesis.
+
+
+3. EVOLUTION OF NEURAL ARCHITECTURES
+--------------------------------------------------------------------------------
+   Perceptron 
+       └── Multilayer Perceptron (MLP)
+             └── Feedforward Neural Network (FNN / ANN)
+                   ├── Recurrent Neural Network (RNN / LSTM / GRU)
+                   ├── Convolutional Neural Network (CNN)
+                   ├── Generative Adversarial Network (GAN)
+                   └── Transformers & Foundation Models
+
+   Historical Progression & Logic Gates:
+   - Single Perceptron: Can model linearly separable logic gates (AND, OR, NOT).
+   - The XOR Problem: A single-layer perceptron cannot solve non-linear problems like XOR.
+   - Multilayer Perceptron (MLP): Introduces hidden layers and non-linear activations,
+     enabling neural networks to approximate arbitrary continuous functions (Universal 
+     Approximation Theorem).
+
+
+4. FUNDAMENTAL COMPONENTS OF NEURAL NETWORKS
+--------------------------------------------------------------------------------
+   - Layers:
+       * Input Layer: Receives input feature vectors.
+       * Hidden Layers: Intermediate representations learning abstract patterns.
+       * Output Layer: Produces final task predictions (probabilities, values).
+   - Nodes / Neurons: Computation units computing weighted sum + bias:
+       z = Sum(w_i * x_i) + b  or  z = W^T * X + b
+   - Weights (W) & Biases (b): Learnable parameters adjusted during training.
+   - Activation Functions (Non-linearity):
+       * Sigmoid: sigma(z) = 1 / (1 + e^(-z))  [Range: (0, 1)]
+       * Tanh: tanh(z) = (e^z - e^(-z)) / (e^z + e^(-z))  [Range: (-1, 1)]
+       * ReLU (Rectified Linear Unit): f(z) = max(0, z)  [Standard default for hidden layers]
+       * Leaky ReLU: f(z) = max(alpha * z, z)  [Mitigates dying ReLU issue]
+       * Softmax: Converts raw logits into normalized probability distribution over classes.
+
+
+5. TYPES OF NEURAL NETWORKS
+--------------------------------------------------------------------------------
+   - Feedforward Neural Networks (FNN): Information flows strictly in one direction.
+     Best for tabular data and general classification/regression.
+   - Convolutional Neural Networks (CNN): Uses convolution kernels and pooling layers.
+     Exploits spatial locality and translation invariance. Standard for computer vision.
+   - Recurrent Neural Networks (RNN / LSTM / GRU): Maintains internal hidden state
+     to process sequential and time-series data.
+   - Generative Adversarial Networks (GAN): Consists of a Generator (creates synthetic
+     data) and a Discriminator (evaluates authenticity) competing in a minimax game.
+   - Transformers: Uses self-attention mechanisms to process tokens in parallel,
+     forming the backbone of modern LLMs (BERT, GPT, Gemini).
+
+
+6. COST & LOSS FUNCTIONS
+--------------------------------------------------------------------------------
+   - Mean Squared Error (MSE):
+       Used for regression tasks.
+       MSE = (1/N) * Sum((y_true - y_pred)^2)
+   - Binary Cross-Entropy (Log Loss):
+       Used for binary classification (0 or 1).
+       Loss = - (1/N) * Sum( y*log(p) + (1-y)*log(1-p) )
+   - Categorical Cross-Entropy:
+       Used for multi-class classification with one-hot encoded targets.
+       Loss = - Sum( y_i * log(p_i) )
+   - Negative Log-Likelihood (NLL):
+       Standard loss when combined with log-softmax outputs.
+
+
+7. OPTIMIZATION & GRADIENT DESCENT
+--------------------------------------------------------------------------------
+   - Forward Propagation: Pass inputs through network layers to calculate predictions and loss.
+   - Backpropagation: Uses the chain rule of calculus to compute gradients of the loss function
+     with respect to each learnable parameter (dW, db).
+   - Parameter Update Rule:
+       W_new = W_old - (learning_rate * dW)
+       b_new = b_old - (learning_rate * db)
+   - Variants:
+       * Batch Gradient Descent: Computes gradients over the entire dataset (stable but slow).
+       * Stochastic Gradient Descent (SGD): Updates parameters per individual sample (fast, noisy).
+       * Mini-batch Gradient Descent: Updates parameters per small batch (32, 64, 128, etc.).
+       * Modern Adaptive Optimizers: Adam, RMSprop, AdamW (dynamically adjust learning rates).
+
+
+8. KEY APPLICATIONS
+--------------------------------------------------------------------------------
+   - Computer Vision: Image classification, semantic segmentation, object detection, video analysis.
+   - Natural Language Processing (NLP): Translation, sentiment analysis, question answering, summarization.
+   - Generative AI: Large language models (LLMs), diffusion models for image/video generation.
+   - Speech Recognition & Audio: Voice-to-text (ASR), speaker diarization, text-to-speech (TTS).
+
+
+9. DATASET & IMPLEMENTATION NOTES (UCI ADULT CENSUS)
+--------------------------------------------------------------------------------
+   - Problem: Predict whether income exceeds $50K/year based on census data (Binary Classification).
+   
+   - Correct Dataset URLs:
+       Train: https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
+       Test:  https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test
+       (Note: Ensure 'machine' spelling and '/adult/' path segment are included).
+
+   - Attributes (15 Columns):
+       1. age               (Continuous)
+       2. workclass         (Categorical)
+       3. fnlwgt            (Continuous, final sampling weight)
+       4. education         (Categorical)
+       5. education_num     (Continuous)
+       6. marital           (Categorical)
+       7. occupation        (Categorical)
+       8. relationship      (Categorical)
+       9. race              (Categorical)
+      10. sex               (Categorical)
+      11. capital_gain      (Continuous)
+      12. capital_loss      (Continuous)
+      13. hours_week        (Continuous)
+      14. native_country    (Categorical)
+      15. label             (Binary Target: <=50K, >50K)
+
+   - Loading with Pandas:
+       COLUMNS = ['age','workclass','fnlwgt','education','education_num','marital',
+                  'occupation','relationship','race','sex','capital_gain',
+                  'capital_loss','hours_week','native_country','label']
+
+       df_train = pd.read_csv(PATH, skipinitialspace=True, names=COLUMNS, index_col=False)
+       df_test  = pd.read_csv(PATH_test, skiprows=1, skipinitialspace=True, names=COLUMNS, index_col=False)
+
+   - Target Label Encoding:
+       In train set: values are '<=50K' and '>50K' (uppercase 'K').
+       In test set:  values have a trailing period: '<=50K.' and '>50K.'.
+
+       label = {'<=50K': 0, '>50K': 1}
+       df_train.label = [label[item] for item in df_train.label]
+
+       label_t = {'<=50K.': 0, '>50K.': 1}
+       df_test.label = [label_t[item] for item in df_test.label]
+
+   - Modern TensorFlow Migration Note (TF 2.16+ / Keras 3):
+       * The `tf.estimator` API was officially deprecated and REMOVED in TensorFlow 2.16+.
+       * Old tutorials that used `tf.estimator.LinearClassifier` fail with:
+         "AttributeError: module 'tensorflow' has no attribute 'estimator'"
+       * In modern TensorFlow, binary linear classification is cleanly built using Keras:
+         - One-hot encode categorical features (pd.get_dummies).
+         - Standardize continuous numerical features.
+         - Single Dense layer with Sigmoid activation:
+             model = tf.keras.Sequential([
+                 tf.keras.layers.Input(shape=(X_train.shape[1],)),
+                 tf.keras.layers.Dense(1, activation='sigmoid')
+             ])
+             model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+             model.fit(X_train, y_train, epochs=5, batch_size=64)
+================================================================================
+
