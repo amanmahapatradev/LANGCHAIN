@@ -81,3 +81,17 @@ Solution to Gradient Problem ->
     3. Mini-batch Gradient Descent -> 
         - Computes gradients per small batch (32, 64, 128, etc.) 
         - Standard default for most tasks 
+
+Keras is a high-level neural networks API 
+
+working prienciple of keras ->  Sequential Model ->   Layer -> Dense -> Conv2D -> MaxPooling2D -> Flatten -> Dropout -> BatchNormalization -> Input Layer -> Hidden Layer -> Output Layer   
+
+Types of  Keras model -> Sequential Model -> Functional API -> Subclassing 
+
+Types of layers in Keras -> Dense -> Conv2D -> MaxPooling2D -> Flatten -> Dropout -> BatchNormalization  -> Input Layer -> Hidden Layer -> Output Layer 
+
+Neural network architecture ->  Sequential Model ->   Layer -> Dense -> Conv2D -> MaxPooling2D -> Flatten -> Dropout -> BatchNormalization  -> Input Layer -> Hidden Layer -> Output Layer      
+
+work of Neural Network -> Feed Forward -> Recurrent -> Convolutional -> Generative -> Transformers -> Deep learning model  
+
+Implementation of Neural Network -> Sequential Model ->   Layer -> Dense -> Conv2D -> MaxPooling2D -> Flatten -> Dropout -> BatchNormalization  -> Input Layer -> Hidden Layer -> Output Layer  
