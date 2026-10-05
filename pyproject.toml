@@ -17,4 +17,7 @@ dependencies = [
     "scikit-learn>=1.9.1",
     "keras>=3.15.1",
     "torch>=2.14.0",
+    "streamlit>=1.30.0",
+    "langchain-classic>=1.0.0",
+    "langchain-community>=0.3.0",
 ]
