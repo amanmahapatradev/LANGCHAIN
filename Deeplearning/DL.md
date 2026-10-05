@@ -94,4 +94,6 @@ Neural network architecture ->  Sequential Model ->   Layer -> Dense -> Conv2D -
 
 work of Neural Network -> Feed Forward -> Recurrent -> Convolutional -> Generative -> Transformers -> Deep learning model  
 
-Implementation of Neural Network -> Sequential Model ->   Layer -> Dense -> Conv2D -> MaxPooling2D -> Flatten -> Dropout -> BatchNormalization  -> Input Layer -> Hidden Layer -> Output Layer  
+Implementation of Neural Network -> Sequential Model ->   Layer -> Dense -> Conv2D -> MaxPooling2D -> Flatten -> Dropout -> BatchNormalization  -> Input Layer -> Hidden Layer -> Output Layer 
+
+Types of Artificial Neural Network -> Feedforward Neural Network -> Recurrent Neural Network -> Convolutional Neural Network -> Generative Adversarial Network -> Transformers -> Deep learning model   

@@ -49,7 +49,10 @@ def detect_and_predict_mask(frame, faceNet, maskNet, min_confidence=0.5):
     # Run predictions if any face detected
     if len(faces) > 0:
         faces = np.array(faces, dtype="float32")
-        preds = maskNet.predict(faces, batch_size=32)
+        try:
+            preds = maskNet(faces, training=False).numpy()
+        except Exception:
+            preds = maskNet.predict(faces, batch_size=32, verbose=0)
 
     return (locs, preds)
 
